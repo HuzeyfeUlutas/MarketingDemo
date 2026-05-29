@@ -68,6 +68,14 @@ def member_user(db_session: Session) -> User:
     )
 
 
+@pytest.fixture
+def sample_client(db_session: Session):
+    from app.schemas.client import ClientCreate
+    from app.services import client_service
+
+    return client_service.create_client(db_session, ClientCreate(name="Acme Corp"))
+
+
 def auth_headers_for(client: TestClient, email: str, password: str) -> dict[str, str]:
     """Login olup Authorization header döndürür."""
     resp = client.post("/api/v1/auth/login", data={"username": email, "password": password})

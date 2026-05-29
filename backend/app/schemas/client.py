@@ -22,6 +22,15 @@ class ClientCreate(ClientBase):
     pass
 
 
+class ClientMini(BaseModel):
+    """Diğer kaynaklarda gömülü gösterim için hafif müşteri bilgisi."""
+
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    name: str
+
+
 class ClientUpdate(BaseModel):
     name: str | None = Field(default=None, min_length=1, max_length=255)
     industry: str | None = Field(default=None, max_length=120)

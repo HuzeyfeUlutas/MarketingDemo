@@ -53,8 +53,18 @@ cd frontend && npm run build      # tsc typecheck + vite build
 
 ## Yol Haritası
 
-Fazlar ve görev takibi: `docs/ROADMAP.md`. **Faz 0–2** tamamlandı (iskelet,
-Auth & Ekip, Müşteri Yönetimi); sırada **Faz 3 (İçerik Takvimi & Planlama)**.
+Fazlar ve görev takibi: `docs/ROADMAP.md`. **Faz 0–3** tamamlandı (iskelet,
+Auth & Ekip, Müşteri, İçerik Takvimi); sırada **Faz 4 (Analytics & Raporlama)**.
+
+## İçerik (Faz 3)
+
+- `models/content.py`: `ContentItem` (durum akışı) + `Asset`. Platformlar JSON.
+- Durum akışı: draft→pending_review→approved→scheduled→published (geri dönüşler
+  var). Geçişler `content_service.transition` + `ALLOWED_TRANSITIONS`.
+  Onay/zamanlama/yayın = admin/manager; oluştur/düzenle = +content_creator.
+- Endpoint: `content.py` (`/content-items`, `.../{id}/status`, `.../assets`).
+- Celery beat: `tasks.publish_scheduled_content` (60sn) zamanı geleni yayınlar.
+- Frontend: `features/content/` durum panosu + içerik formu.
 
 ## Müşteri (Faz 2)
 

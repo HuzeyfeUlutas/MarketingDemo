@@ -29,12 +29,12 @@ Her faz mantıksal bir teslimdir. İlerleme buradan takip edilir.
 - [x] Frontend: müşteri listesi, detay (sosyal hesap ekle/sil), form/manager atama
 - [x] Testler (backend: client + sosyal hesap akışı; frontend: util)
 
-## ⏳ Faz 3 — İçerik Takvimi & Planlama
-- [ ] ContentItem + Asset modelleri, durum/onay akışı
-- [ ] CRUD + durum geçiş endpoint'leri
-- [ ] Frontend: takvim görünümü, içerik editörü, onay
-- [ ] Celery: `scheduled_at` → mock "yayınla" task'ı
-- [ ] Testler
+## ✅ Faz 3 — İçerik Takvimi & Planlama
+- [x] ContentItem + Asset modelleri, durum/onay akışı + migration 0003
+- [x] CRUD + durum geçiş endpoint'i (`/content-items/{id}/status`) ve geçiş kuralları
+- [x] Frontend: durum panosu (planlama board), içerik editörü dialog, onay aksiyonları
+- [x] Celery: beat ile `publish_scheduled_content` (scheduled_at gelince mock yayın)
+- [x] Testler (backend: akış + yayınlama; frontend: util)
 
 ## ⏳ Faz 4 — Analytics & Raporlama
 - [ ] AnalyticsSnapshot modeli + mock üreticisi (periyodik Celery)

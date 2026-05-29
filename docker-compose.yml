@@ -61,7 +61,8 @@ services:
       - redis
     volumes:
       - ./backend:/app
-    command: celery -A app.workers.celery_app worker --loglevel=info
+    # -B: gömülü beat (zamanlanmış içerik yayınlama görevini periyodik çalıştırır)
+    command: celery -A app.workers.celery_app worker -B --loglevel=info
 
   frontend:
     build: ./frontend
