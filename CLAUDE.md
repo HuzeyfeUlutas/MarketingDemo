@@ -53,5 +53,14 @@ cd frontend && npm run build      # tsc typecheck + vite build
 
 ## Yol Haritası
 
-Fazlar ve görev takibi: `docs/ROADMAP.md`. Şu an **Faz 0 (temel iskelet)**
-tamamlandı; sırada **Faz 1 (Auth & Kullanıcı/Ekip)**.
+Fazlar ve görev takibi: `docs/ROADMAP.md`. **Faz 0 (iskelet)** ve **Faz 1
+(Auth & Kullanıcı/Ekip)** tamamlandı; sırada **Faz 2 (Müşteri Yönetimi)**.
+
+## Auth (Faz 1)
+
+- JWT access+refresh, bcrypt; `core/security.py` + `core/config.py`.
+- Korumalı endpoint: `app/api/deps.py` → `CurrentUser`, `ActiveUser`,
+  `require_roles(...)`. Admin'e özel işlemler `users.py`.
+- İlk admin: `python -m app.db.init_db` (env: `FIRST_SUPERUSER_*`).
+- Frontend: `src/auth/AuthContext.tsx` (login/logout/me), `ProtectedRoute`,
+  token `src/auth/tokenStorage.ts`, 401'de otomatik refresh (`api/client.ts`).

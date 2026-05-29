@@ -3,6 +3,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.v1.endpoints import health
 from app.api.v1.router import api_router
 from app.core.config import settings
 
@@ -22,8 +23,9 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    # Kök seviyede de /health bulunsun (load balancer / probe kolaylığı)
-    app.include_router(api_router)
+    # Kök seviyede /health bulunsun (load balancer / probe kolaylığı)
+    app.include_router(health.router, tags=["health"])
+    # Tüm API /api/v1 altında
     app.include_router(api_router, prefix=settings.API_V1_PREFIX)
 
     return app

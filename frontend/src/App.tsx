@@ -1,7 +1,7 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 
-import AppLayout from "./layouts/AppLayout";
+import { AuthProvider } from "./auth/AuthContext";
 import AppRoutes from "./routes/AppRoutes";
 import { theme } from "./theme";
 
@@ -10,9 +10,9 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <AppLayout>
+        <AuthProvider>
           <AppRoutes />
-        </AppLayout>
+        </AuthProvider>
       </BrowserRouter>
     </ThemeProvider>
   );

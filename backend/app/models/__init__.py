@@ -1,5 +1,9 @@
 """SQLAlchemy modelleri.
 
-Sonraki fazlarda (User, Client, ContentItem, ...) burada tanımlanacak ve
-Alembic'in görmesi için buradan import edilecek.
+Alembic'in (autogenerate) ve test kurulumunun (create_all) tüm tabloları
+görebilmesi için modeller buradan import edilir.
 """
+
+from app.models.user import User, UserRole
+
+__all__ = ["User", "UserRole"]
