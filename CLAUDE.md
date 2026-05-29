@@ -53,8 +53,16 @@ cd frontend && npm run build      # tsc typecheck + vite build
 
 ## Yol Haritası
 
-Fazlar ve görev takibi: `docs/ROADMAP.md`. **Faz 0–3** tamamlandı (iskelet,
-Auth & Ekip, Müşteri, İçerik Takvimi); sırada **Faz 4 (Analytics & Raporlama)**.
+Fazlar ve görev takibi: `docs/ROADMAP.md`. **Faz 0–4** tamamlandı (iskelet,
+Auth & Ekip, Müşteri, İçerik, Analytics); sırada **Faz 5 (SEO Araçları)**.
+
+## Analytics (Faz 4)
+
+- `models/analytics.py`: `AnalyticsSnapshot` (mock metrikler) + `Report`.
+- `analytics_service`: mock üretim (trendli), tarihe göre toplulaştırma, özet,
+  rapor. Endpoint `analytics.py` (`/analytics/summary`, `/generate`, `/reports`).
+- Celery beat: `tasks.generate_daily_analytics` (günlük).
+- Frontend: `features/analytics/` özet kartları + LineChart (@mui/x-charts).
 
 ## İçerik (Faz 3)
 

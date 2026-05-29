@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import PlaceholderPage from "../components/PlaceholderPage";
 import ProtectedRoute from "../components/ProtectedRoute";
+import AnalyticsPage from "../features/analytics/AnalyticsPage";
 import LoginPage from "../features/auth/LoginPage";
 import ClientDetailPage from "../features/clients/ClientDetailPage";
 import ClientsPage from "../features/clients/ClientsPage";
@@ -27,7 +28,7 @@ export default function AppRoutes() {
                 <Route path="clients" element={<ClientsPage />} />
                 <Route path="clients/:id" element={<ClientDetailPage />} />
                 <Route path="content" element={<ContentPage />} />
-                <Route path="analytics" element={<PlaceholderPage title="Analytics" />} />
+                <Route path="analytics" element={<AnalyticsPage />} />
                 <Route path="seo" element={<PlaceholderPage title="SEO" />} />
                 <Route
                   path="users"

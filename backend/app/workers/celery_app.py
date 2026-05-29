@@ -25,6 +25,10 @@ celery_app.conf.update(
             "task": "tasks.publish_scheduled_content",
             "schedule": 60.0,
         },
+        "generate-daily-analytics": {
+            "task": "tasks.generate_daily_analytics",
+            "schedule": 86400.0,  # günde bir mock metrik üret
+        },
     },
 )
 
@@ -45,5 +49,18 @@ def publish_scheduled_content() -> int:
     db = SessionLocal()
     try:
         return content_service.publish_due_scheduled(db)
+    finally:
+        db.close()
+
+
+@celery_app.task(name="tasks.generate_daily_analytics")
+def generate_daily_analytics() -> int:
+    """Tüm müşteriler için bugünün mock metriklerini üretir. Üretilen sayıyı döner."""
+    from app.db.session import SessionLocal
+    from app.services import analytics_service
+
+    db = SessionLocal()
+    try:
+        return analytics_service.generate_daily_for_all(db)
     finally:
         db.close()
