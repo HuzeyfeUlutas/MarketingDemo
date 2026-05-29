@@ -36,12 +36,13 @@ Her faz mantıksal bir teslimdir. İlerleme buradan takip edilir.
 - [x] Celery: beat ile `publish_scheduled_content` (scheduled_at gelince mock yayın)
 - [x] Testler (backend: akış + yayınlama; frontend: util)
 
-## ⏳ Faz 4 — Analytics & Raporlama
-- [ ] AnalyticsSnapshot modeli + mock üreticisi (periyodik Celery)
-- [ ] Metrik endpoint'leri (toplulaştırma)
-- [ ] Frontend: grafikler (MUI X Charts), client dashboard'u
-- [ ] Report üretimi (indirilebilir/print)
-- [ ] Testler
+## ✅ Faz 4 — Analytics & Raporlama
+- [x] AnalyticsSnapshot + Report modelleri + migration 0004
+- [x] Mock metrik üreticisi + periyodik Celery task (`generate_daily_analytics`)
+- [x] Metrik endpoint'leri: `/analytics/summary` (toplulaştırma + zaman serisi), `/generate`
+- [x] Frontend: özet kartları + çizgi grafik (MUI X Charts), müşteri/dönem seçimi
+- [x] Rapor üretimi + listeleme (`/analytics/reports`)
+- [x] Testler (backend: üretim/özet/rapor; frontend: util)
 
 ## ⏳ Faz 5 — SEO Araçları
 - [ ] Keyword/RankTracking/SiteAudit/Backlink modelleri + mock üreticiler

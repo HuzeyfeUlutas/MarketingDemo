@@ -137,3 +137,37 @@ export interface ContentItem {
   created_at: string;
   updated_at: string;
 }
+
+// ---- Analytics & Raporlama ----
+
+export interface TimeseriesPoint {
+  date: string;
+  reach: number;
+  impressions: number;
+  engagement: number;
+  followers: number;
+}
+
+export interface AnalyticsSummary {
+  client_id: number;
+  period_days: number;
+  total_reach: number;
+  total_impressions: number;
+  total_engagement: number;
+  current_followers: number;
+  follower_growth: number;
+  engagement_rate: number;
+  timeseries: TimeseriesPoint[];
+}
+
+export interface Report {
+  id: number;
+  client_id: number;
+  client: ClientMini | null;
+  title: string;
+  period_start: string;
+  period_end: string;
+  generated_by: UserSummary | null;
+  summary: Record<string, number>;
+  generated_at: string;
+}
