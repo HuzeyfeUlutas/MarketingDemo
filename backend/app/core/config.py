@@ -37,6 +37,11 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
+    # İlk admin (seed). Boşsa seed atlanır. Parola ASLA repoda olmaz (env'den).
+    FIRST_SUPERUSER_EMAIL: str | None = None
+    FIRST_SUPERUSER_PASSWORD: str | None = None
+    FIRST_SUPERUSER_NAME: str = "Admin"
+
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     @classmethod
     def _split_cors(cls, v: str | list[str]) -> list[str]:

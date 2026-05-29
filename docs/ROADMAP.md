@@ -13,13 +13,14 @@ Her faz mantıksal bir teslimdir. İlerleme buradan takip edilir.
 - [x] GitHub Actions CI (ruff/pytest + tsc/vitest)
 - [x] Dökümantasyon: README, SECURITY, CLAUDE, docs/*
 
-## ⏳ Faz 1 — Auth & Kullanıcı/Ekip Yönetimi
-- [ ] User modeli + migration
-- [ ] bcrypt parola hash + JWT (login/refresh)
-- [ ] Rol tabanlı yetki dependency'leri
-- [ ] Frontend: login sayfası, korumalı route'lar, token saklama
-- [ ] Kullanıcı/ekip CRUD ekranları
-- [ ] Testler
+## ✅ Faz 1 — Auth & Kullanıcı/Ekip Yönetimi
+- [x] User modeli (rol: admin/manager/content_creator/analyst/seo_specialist) + migration
+- [x] bcrypt parola hash + JWT (login/refresh/me)
+- [x] Rol tabanlı yetki dependency'leri (`require_roles`)
+- [x] User CRUD endpoint'leri (admin) + ilk admin seed (`init_db`)
+- [x] Frontend: login sayfası, AuthContext, korumalı route'lar, token + refresh interceptor
+- [x] Kullanıcı/ekip CRUD ekranları (admin)
+- [x] Testler (backend: auth + users; frontend: util)
 
 ## ⏳ Faz 2 — Müşteri (Client) Yönetimi
 - [ ] Client + SocialAccount modelleri (mock hesaplar)
