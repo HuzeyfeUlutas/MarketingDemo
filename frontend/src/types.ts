@@ -171,3 +171,37 @@ export interface Report {
   summary: Record<string, number>;
   generated_at: string;
 }
+
+// ---- SEO ----
+
+export interface RankPoint {
+  date: string;
+  position: number;
+}
+
+export interface Keyword {
+  id: number;
+  client_id: number;
+  term: string;
+  target_url: string | null;
+  search_volume: number;
+  rankings: RankPoint[];
+  created_at: string;
+}
+
+export interface SiteAudit {
+  id: number;
+  client_id: number;
+  date: string;
+  score: number;
+  issues: { title: string; severity: string }[];
+  created_at: string;
+}
+
+export interface Backlink {
+  id: number;
+  client_id: number;
+  source_url: string;
+  authority: number;
+  discovered_at: string;
+}

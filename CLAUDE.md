@@ -53,8 +53,17 @@ cd frontend && npm run build      # tsc typecheck + vite build
 
 ## Yol Haritası
 
-Fazlar ve görev takibi: `docs/ROADMAP.md`. **Faz 0–4** tamamlandı (iskelet,
-Auth & Ekip, Müşteri, İçerik, Analytics); sırada **Faz 5 (SEO Araçları)**.
+Fazlar ve görev takibi: `docs/ROADMAP.md`. **Faz 0–5 (MVP) tamamlandı**
+(iskelet, Auth & Ekip, Müşteri, İçerik, Analytics, SEO). Sırada opsiyonel
+**Faz 6 (cila & gerçek entegrasyon hazırlığı)**.
+
+## SEO (Faz 5)
+
+- `models/seo.py`: `Keyword` + `RankTracking` + `SiteAudit` + `Backlink` (mock).
+- `seo_service`: keyword + mock sıralama geçmişi, site denetimi (skor+sorunlar),
+  backlink üretimi. Endpoint `seo.py` (`/seo/keywords`, `/site-audits`, `/backlinks`).
+- Değişiklik yetkisi: admin/manager/seo_specialist; görüntüleme tüm ekip.
+- Frontend: `features/seo/` sekmeli ekran (kelime+sıralama grafiği, denetim, backlink).
 
 ## Analytics (Faz 4)
 

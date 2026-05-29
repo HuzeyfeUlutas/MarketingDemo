@@ -44,11 +44,11 @@ Her faz mantıksal bir teslimdir. İlerleme buradan takip edilir.
 - [x] Rapor üretimi + listeleme (`/analytics/reports`)
 - [x] Testler (backend: üretim/özet/rapor; frontend: util)
 
-## ⏳ Faz 5 — SEO Araçları
-- [ ] Keyword/RankTracking/SiteAudit/Backlink modelleri + mock üreticiler
-- [ ] Endpoint'ler
-- [ ] Frontend: anahtar kelime takibi, sıralama grafiği, denetim skoru
-- [ ] Testler
+## ✅ Faz 5 — SEO Araçları  →  🎉 MVP TAMAMLANDI
+- [x] Keyword/RankTracking/SiteAudit/Backlink modelleri + mock üreticiler + migration 0005
+- [x] Endpoint'ler (`/seo/keywords`, `/site-audits`, `/backlinks`)
+- [x] Frontend: anahtar kelime takibi + sıralama trend grafiği, site denetim skoru, backlink listesi
+- [x] Testler (backend: keyword/rank, audit, backlink, yetki)
 
 ## ⏳ Faz 6 — Cila & Gerçek Entegrasyon Hazırlığı
 - [ ] Integration adapter arayüzü (mock ↔ gerçek API)
