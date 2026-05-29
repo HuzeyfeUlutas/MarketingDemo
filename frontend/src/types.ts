@@ -94,3 +94,46 @@ export interface Client {
   created_at: string;
   updated_at: string;
 }
+
+export interface ClientMini {
+  id: number;
+  name: string;
+}
+
+// ---- İçerik (ContentItem) ----
+
+export type ContentStatus =
+  | "draft"
+  | "pending_review"
+  | "approved"
+  | "scheduled"
+  | "published";
+
+export const CONTENT_STATUSES: { value: ContentStatus; label: string }[] = [
+  { value: "draft", label: "Taslak" },
+  { value: "pending_review", label: "İncelemede" },
+  { value: "approved", label: "Onaylandı" },
+  { value: "scheduled", label: "Zamanlandı" },
+  { value: "published", label: "Yayınlandı" },
+];
+
+export function contentStatusLabel(s: ContentStatus): string {
+  return CONTENT_STATUSES.find((x) => x.value === s)?.label ?? s;
+}
+
+export interface ContentItem {
+  id: number;
+  client_id: number;
+  client: ClientMini | null;
+  title: string;
+  body: string;
+  platforms: SocialPlatform[];
+  status: ContentStatus;
+  scheduled_at: string | null;
+  published_at: string | null;
+  created_by: UserSummary | null;
+  approved_by: UserSummary | null;
+  assets: { id: number; type: string; url: string; filename: string | null }[];
+  created_at: string;
+  updated_at: string;
+}
