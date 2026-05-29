@@ -28,3 +28,69 @@ export interface User {
   created_at: string;
   updated_at: string;
 }
+
+export interface UserSummary {
+  id: number;
+  full_name: string;
+  role: UserRole;
+}
+
+// ---- Müşteri (Client) ----
+
+export type ClientStatus = "active" | "paused" | "archived";
+
+export const CLIENT_STATUSES: { value: ClientStatus; label: string }[] = [
+  { value: "active", label: "Aktif" },
+  { value: "paused", label: "Duraklatıldı" },
+  { value: "archived", label: "Arşivlendi" },
+];
+
+export function clientStatusLabel(status: ClientStatus): string {
+  return CLIENT_STATUSES.find((s) => s.value === status)?.label ?? status;
+}
+
+export type SocialPlatform =
+  | "instagram"
+  | "facebook"
+  | "x"
+  | "linkedin"
+  | "tiktok"
+  | "youtube";
+
+export const SOCIAL_PLATFORMS: { value: SocialPlatform; label: string }[] = [
+  { value: "instagram", label: "Instagram" },
+  { value: "facebook", label: "Facebook" },
+  { value: "x", label: "X (Twitter)" },
+  { value: "linkedin", label: "LinkedIn" },
+  { value: "tiktok", label: "TikTok" },
+  { value: "youtube", label: "YouTube" },
+];
+
+export function platformLabel(p: SocialPlatform): string {
+  return SOCIAL_PLATFORMS.find((s) => s.value === p)?.label ?? p;
+}
+
+export interface SocialAccount {
+  id: number;
+  client_id: number;
+  platform: SocialPlatform;
+  handle: string;
+  follower_count: number;
+  avatar_url: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface Client {
+  id: number;
+  name: string;
+  industry: string | null;
+  website: string | null;
+  notes: string | null;
+  status: ClientStatus;
+  manager_id: number | null;
+  manager: UserSummary | null;
+  social_accounts: SocialAccount[];
+  created_at: string;
+  updated_at: string;
+}

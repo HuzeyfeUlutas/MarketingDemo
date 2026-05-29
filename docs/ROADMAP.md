@@ -22,11 +22,12 @@ Her faz mantıksal bir teslimdir. İlerleme buradan takip edilir.
 - [x] Kullanıcı/ekip CRUD ekranları (admin)
 - [x] Testler (backend: auth + users; frontend: util)
 
-## ⏳ Faz 2 — Müşteri (Client) Yönetimi
-- [ ] Client + SocialAccount modelleri (mock hesaplar)
-- [ ] CRUD API + service'ler
-- [ ] Frontend: müşteri listesi, detay, manager atama
-- [ ] Testler
+## ✅ Faz 2 — Müşteri (Client) Yönetimi
+- [x] Client + SocialAccount modelleri (mock hesaplar) + migration
+- [x] CRUD API + service'ler (görüntüleme: tüm ekip; değişiklik: admin/manager)
+- [x] Manager atama + doğrulama, atanabilir yönetici listesi endpoint'i
+- [x] Frontend: müşteri listesi, detay (sosyal hesap ekle/sil), form/manager atama
+- [x] Testler (backend: client + sosyal hesap akışı; frontend: util)
 
 ## ⏳ Faz 3 — İçerik Takvimi & Planlama
 - [ ] ContentItem + Asset modelleri, durum/onay akışı

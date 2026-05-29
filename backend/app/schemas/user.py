@@ -31,3 +31,13 @@ class UserRead(UserBase):
     id: int
     created_at: datetime
     updated_at: datetime
+
+
+class UserSummary(BaseModel):
+    """Diğer kaynaklarda gömülü gösterim için hafif kullanıcı bilgisi."""
+
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    full_name: str
+    role: UserRole
