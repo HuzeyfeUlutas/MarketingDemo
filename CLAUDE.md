@@ -53,8 +53,15 @@ cd frontend && npm run build      # tsc typecheck + vite build
 
 ## Yol Haritası
 
-Fazlar ve görev takibi: `docs/ROADMAP.md`. **Faz 0 (iskelet)** ve **Faz 1
-(Auth & Kullanıcı/Ekip)** tamamlandı; sırada **Faz 2 (Müşteri Yönetimi)**.
+Fazlar ve görev takibi: `docs/ROADMAP.md`. **Faz 0–2** tamamlandı (iskelet,
+Auth & Ekip, Müşteri Yönetimi); sırada **Faz 3 (İçerik Takvimi & Planlama)**.
+
+## Müşteri (Faz 2)
+
+- `models/client.py`: `Client` + `SocialAccount` (mock, platform enum).
+- Endpoint `clients.py`: görüntüleme tüm aktif ekip, değişiklik admin/manager
+  (`require_roles(admin, manager)`). Manager atama doğrulanır.
+- Frontend: `features/clients/` (liste, detay, form, sosyal hesap dialog).
 
 ## Auth (Faz 1)
 
